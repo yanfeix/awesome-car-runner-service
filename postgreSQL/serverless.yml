@@ -1,0 +1,13 @@
+stage: ${env:NODE_ENV} # (optional) serverless dashboard stage. default is dev.
+app: ${env:APP_NAME}
+name: postgresql_${env:APP_NAME} # (required) name of your express component instance.
+component: postgresql #(requied)
+
+inputs:
+  region: ap-guangzhou  # 可选 ap-guangzhou, ap-shanghai, ap-beijing
+  zone: ap-guangzhou-2  # 可选 ap-guangzhou-2, ap-shanghai-2, ap-beijing-3
+  dBInstanceName: db_${name}
+  vpcConfig:
+    vpcId: ${output:${stage}:${app}:vpc_${app}.vpcId}
+    subnetId: ${output:${stage}:${app}:vpc_${app}.subnetId}
+  extranetAccess: false

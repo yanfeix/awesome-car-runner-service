@@ -1,0 +1,30 @@
+{
+  "name": "awesome-car-runner-service",
+  "version": "1.0.0",
+  "description": "A NodeJS application built on serverless express",
+  "main": "sls.js",
+  "scripts": {
+    "deploy-dev": "cross-env NODE_ENV=development APP_NAME=awesomeCarRunner run-s deploy",
+    "deploy": "run-s deploy:*",
+    "deploy:vpc": "cd vpc && serverless",
+    "deploy:db": "cd postgreSQL && serverless",
+    "deploy:service": "serverless",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "url": "https://github.com/yanfeix/awesome-car-runner-service.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yanfeix/awesome-car-runner-service/issues"
+  },
+  "homepage": "https://github.com/yanfeix/awesome-car-runner-service#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "npm-run-all": "^4.1.5"
+  }
+}

@@ -1,0 +1,29 @@
+stage: ${env:NODE_ENV} # (optional) serverless dashboard stage. default is dev.
+app: ${env:APP_NAME}
+name: express_${env:APP_NAME} # (required) name of your express component instance.
+component: express # (required) name of the component.
+
+inputs:
+  region: ap-guangzhou
+  functionName: fn_${name}_${stage}
+  serviceName:  api_${name}_${stage}
+  runtime: Nodejs12.16
+  src:
+    src: ./ # (optional) path to the source folder
+    exclude:
+      - .env
+  functionConf:
+    memorySize: 128
+    timeout: 10
+    environment:
+      variables:
+        ENV: ${stage}
+    vpcConfig:
+      vpcId: ${output:${stage}:${app}:vpc_${app}.vpcId}
+      subnetId: ${output:${stage}:${app}:vpc_${app}.subnetId}
+
+  apigatewayConf:
+    protocols:
+      - http
+      - https
+    environment: release

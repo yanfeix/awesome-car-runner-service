@@ -1,0 +1,10 @@
+stage: ${env:NODE_ENV} # (optional) serverless dashboard stage. default is dev.
+app: ${env:APP_NAME}
+name: vpc_${env:APP_NAME} # (required) name of your express component instance.
+component: vpc #  (必填) 引用 component 的名称，当前用到的是 tencent-vpc 组件.
+
+inputs:
+  region: ap-guangzhou
+  zone: ap-guangzhou-2
+  vpcName: ${name}_${stage}
+  subnetName: subnet_${name}_${stage}
