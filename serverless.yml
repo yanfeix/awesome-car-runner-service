@@ -18,6 +18,7 @@ inputs:
     environment:
       variables:
         ENV: ${stage}
+        DB_CONNECT_STRING: ${output:${stage}:${app}:postgresql_${app}.private.connectionString}
     vpcConfig:
       vpcId: ${output:${stage}:${app}:vpc_${app}.vpcId}
       subnetId: ${output:${stage}:${app}:vpc_${app}.subnetId}

@@ -9,6 +9,7 @@
     "deploy:vpc": "cd vpc && serverless",
     "deploy:db": "cd postgreSQL && serverless",
     "deploy:service": "serverless",
+    "lint": "eslint src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,10 +22,12 @@
   },
   "homepage": "https://github.com/yanfeix/awesome-car-runner-service#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "pg": "^8.3.2"
   },
   "devDependencies": {
     "cross-env": "^7.0.2",
+    "eslint": "^7.7.0",
     "npm-run-all": "^4.1.5"
   }
 }

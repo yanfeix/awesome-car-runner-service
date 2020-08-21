@@ -1,5 +1,6 @@
 const express = require('express')
 const path = require('path')
+const getUsers = require('./db/user')
 
 const router = express.Router()
 
@@ -15,13 +16,9 @@ router.get('/isActive', (req, res) => {
     })
 })
 
-router.get('/user', (req, res) => {
-  res.send([
-    {
-      title: 'serverless framework',
-      link: 'https://serverless.com'
-    }
-  ])
+router.get('/user', async (req, res) => {
+  const result = await getUsers()
+  res.status(200).send(result)
 })
 
 router.get('/user/:id', (req, res) => {
@@ -34,7 +31,8 @@ router.get('/user/:id', (req, res) => {
 })
 
 router.get('/build', (req, res) => {
-  res.status(200).send('from src')
+  const now = Date()
+  res.status(200).send(now)
 })
 
 router.get('/404', (req, res) => {
