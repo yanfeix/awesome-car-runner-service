@@ -18,6 +18,8 @@ inputs:
     environment:
       variables:
         ENV: ${stage}
+        WECHAT_APP_ID: ${env:WECHAT_APP_ID}
+        WECHAT_APP_SECRET: ${env:WECHAT_APP_SECRET}
         DB_CONNECT_STRING: ${output:${stage}:${app}:postgresql_${app}.private.connectionString}
     vpcConfig:
       vpcId: ${output:${stage}:${app}:vpc_${app}.vpcId}

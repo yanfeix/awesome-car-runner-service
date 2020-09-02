@@ -4,11 +4,11 @@
   "description": "A NodeJS application built on serverless express",
   "main": "sls.js",
   "scripts": {
-    "deploy-dev": "cross-env NODE_ENV=development APP_NAME=awesomeCarRunner run-s deploy",
-    "deploy": "run-s deploy:*",
-    "deploy:vpc": "cd vpc && serverless",
-    "deploy:db": "cd postgreSQL && serverless",
-    "deploy:service": "serverless",
+    "local": "cross-env NODE_ENV=local nodemon sls.js",
+    "serverless": "cross-env NODE_ENV=development APP_NAME=awesomeCarRunner run-s sls-deploy:*",
+    "sls-deploy:vpc": "cd vpc && serverless",
+    "sls-deploy:db": "cd postgreSQL && serverless",
+    "sls-deploy:service": "serverless",
     "lint": "eslint src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,12 +22,21 @@
   },
   "homepage": "https://github.com/yanfeix/awesome-car-runner-service#readme",
   "dependencies": {
+    "axios": "^0.20.0",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
-    "pg": "^8.3.2"
+    "lodash": "^4.17.20",
+    "pg": "^8.3.2",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.3.4"
   },
   "devDependencies": {
     "cross-env": "^7.0.2",
     "eslint": "^7.7.0",
+    "jest": "^26.4.2",
+    "nodemon": "^2.0.4",
     "npm-run-all": "^4.1.5"
   }
 }
