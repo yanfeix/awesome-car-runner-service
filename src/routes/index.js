@@ -6,9 +6,9 @@ const wechatRoute = require('./wechat-route')
 
 const router = express.Router()
 
-router.use('/wechat', wechatRoute)
 router.use('/active', activeRoute)
 router.use('/db', databaseRoute)
 router.use('/api', userRoute)
+router.use('/api', wechatRoute)
 
 module.exports = router

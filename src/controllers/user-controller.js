@@ -5,12 +5,13 @@ const getAllUsers = async (req, res, next) => {
     res.status(200).send(result)
 }
 
-const addUser = async (req, res, next) => {
-    await userQuery.addUser()
-    res.send('Created')
+const addUsers = async (req, res, next) => {
+    const users = req.body
+    await userQuery.addUsers(users)
+    res.status(201).send('Created')
 }
 
 module.exports = {
     getAllUsers,
-    addUser
+    addUsers
 }

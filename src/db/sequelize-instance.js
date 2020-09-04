@@ -1,7 +1,7 @@
 const { Sequelize } = require('sequelize')
-const { dbConnectionString } = require('../config')
+const { DATABASE_CONNECTION_STRING } = require('../config')
 
-const sequelizeInstance = new Sequelize(dbConnectionString)
+const sequelizeInstance = new Sequelize(DATABASE_CONNECTION_STRING)
 
 module.exports = {
     sequelizeInstance

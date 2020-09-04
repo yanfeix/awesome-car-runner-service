@@ -7,9 +7,6 @@ const { exceptionHandler, notFoundHandler } = require('./middlewares/error-handl
 
 const app = express()
 
-// Initialize Database
-// initializeDatabase()
-
 // Middlewares
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))

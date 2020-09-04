@@ -1,11 +1,7 @@
 const { userModel } = require('./models/user-model')
 
-const addUser = async () => {
-    const user = await userModel.create({
-        name: 'Yanfei',
-        mobile: '15818688723',
-        gender: 'M',
-    })
+const addUsers = async (users) => {
+    await userModel.bulkCreate(users)
 }
 
 const getAllUsers = async () => {
@@ -15,5 +11,5 @@ const getAllUsers = async () => {
 
 module.exports = {
     getAllUsers,
-    addUser
+    addUsers
 }

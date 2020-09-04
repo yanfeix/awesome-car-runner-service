@@ -3,7 +3,7 @@ const { sequelizeInstance } = require('../sequelize-instance')
 
 const userModel = sequelizeInstance.define('users', {
     id: {
-        type: DataTypes.INTEGER.UNSIGNED,
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
@@ -11,14 +11,8 @@ const userModel = sequelizeInstance.define('users', {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    role: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        defaultValue: 'DRIVER'
-    },
     mobile: {
         type: DataTypes.STRING,
-        allowNull: false,
     },
     gender: {
         type: DataTypes.STRING,
@@ -39,7 +33,7 @@ const userModel = sequelizeInstance.define('users', {
 }, {
     indexes: [
         {
-            fields: ['openId', 'unionId']
+            fields: ['openId', 'unionId', 'mobile']
         }
     ]
 })

@@ -1,13 +1,10 @@
 const express = require('express')
-const { getAllUsers, addUser} = require('../controllers/user-controller')
+const { getAllUsers, addUsers} = require('../controllers/user-controller')
 
 const router = express.Router()
 
-router.get('/user', getAllUsers)
-
-router.get('/user/add', addUser)
-
-// router.post('/user', addUser)
+router.get('/users', async (req, res, next) => getAllUsers(req, res).catch(next))
+router.post('/users', async (req, res, next) => addUsers(req, res).catch(next))
 
 module.exports = router
 
