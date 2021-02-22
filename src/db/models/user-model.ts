@@ -1,5 +1,5 @@
-const { DataTypes } = require('sequelize')
-const { sequelizeInstance } = require('../sequelize-instance')
+import DataTypes from 'sequelize'
+import { sequelizeInstance } from '../sequelize-instance'
 
 const userModel = sequelizeInstance.define('users', {
     id: {
@@ -49,6 +49,6 @@ const alterTable = async () => {
 createTableIfNotExist()
 alterTable()
 
-module.exports = {
+export {
     userModel
 }

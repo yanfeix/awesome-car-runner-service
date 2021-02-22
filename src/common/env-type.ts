@@ -4,4 +4,4 @@ const ENV = {
     Production: 'production'
 }
 
-module.exports = { ENV }
+export { ENV }

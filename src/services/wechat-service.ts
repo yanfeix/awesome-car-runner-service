@@ -1,6 +1,6 @@
-const querystring = require('querystring')
-const axios = require('axios')
-const { WECHAT_APP_ID, WECHAT_APP_SECRET } = require('../config')
+import querystring from 'querystring'
+import axios from 'axios'
+import { WECHAT_APP_ID, WECHAT_APP_SECRET } from '../config'
 
 const getWechatAppInfo = async (code) => {
     const query = querystring.stringify({
@@ -14,5 +14,5 @@ const getWechatAppInfo = async (code) => {
     return response.data;
 }
 
-module.exports = { getWechatAppInfo }
+export { getWechatAppInfo }
 

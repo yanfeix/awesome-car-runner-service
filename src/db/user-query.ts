@@ -1,4 +1,4 @@
-const { userModel } = require('./models/user-model')
+import { userModel } from './models/user-model'
 
 const addUsers = async (users) => {
     await userModel.bulkCreate(users)
@@ -9,7 +9,7 @@ const getAllUsers = async () => {
     return result;
 }
 
-module.exports = {
+export {
     getAllUsers,
     addUsers
 }

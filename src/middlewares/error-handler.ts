@@ -1,9 +1,9 @@
-const { NODE_ENV } = require('../config')
-const { ENV } = require('../common/env-type')
+import { NODE_ENV } from '../config'
+import { ENV } from '../common/env-type'
 
 const notFoundHandler = (req, res, next) => {
     const err = new Error('Not Found')
-    err.status = 404
+    // err.status = 404
     next(err)
 }
 
@@ -16,7 +16,7 @@ const exceptionHandler = (err, req, res, next) => {
     }
 }
 
-module.exports = {
+export {
     notFoundHandler,
     exceptionHandler
 }

@@ -1,4 +1,4 @@
-const { sequelizeInstance } = require('./sequelize-instance')
+import { sequelizeInstance }  from './sequelize-instance'
 
 const test = async () => {
     try {
@@ -20,7 +20,7 @@ const close = async () => {
     }
 }
 
-module.exports = {
+export {
     test,
     close
 }
