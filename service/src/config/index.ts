@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-const { ENV } = require('../common/env-type')
+import { ENV } from '../common/env-type'
 
 const {
     NODE_ENV,
@@ -10,15 +10,15 @@ const {
 
 const isLocal = NODE_ENV === ENV.Local
 
+const DATABASE_DIALECT = 'postgres'
 const DATABASE_CONNECTION_STRING = isLocal
     ? 'postgres://postgres:123456@localhost:5432/awesomeCarRunner'
     : DB_CONNECT_STRING
 
-const config = {
+export {
+    DATABASE_DIALECT,
     DATABASE_CONNECTION_STRING,
     WECHAT_APP_ID,
     WECHAT_APP_SECRET,
     NODE_ENV
 }
-
-module.exports = config
