@@ -11,4 +11,4 @@ router.use('/db', databaseRoute)
 router.use('/api', userRoute)
 router.use('/api', wechatRoute)
 
-module.exports = router
+export default router

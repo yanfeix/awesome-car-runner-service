@@ -2,45 +2,19 @@
   "name": "awesome-car-runner-service",
   "version": "1.0.0",
   "description": "A NodeJS application built on serverless express",
-  "main": "dist/sls.js",
   "scripts": {
-    "local": "cross-env NODE_ENV=local run-s build-server monitor-server",
+    "local": "cross-env NODE_ENV=local run-s clean build-server monitor-server",
+    "clean": "rimraf dist",
     "build-server": "tsc",
     "monitor-server": "nodemon --watch dist/sls.js",
-    "serverless": "cross-env NODE_ENV=development APP_NAME=awesomeCarRunner run-p sls-deploy:*",
-    "sls-deploy-:vpc": "cd vpc && serverless",
-    "sls-deploy-:db": "cd postgreSQL && serverless",
-    "sls-deploy:service": "serverless",
+    "serverless": "cross-env NODE_ENV=development APP_NAME=awesomeCarRunner run-s sls-deploy-:*",
+    "sls-deploy:vpc": "cd vpc && sls deploy",
+    "sls-deploy:db": "cd postgreSQL && sls deploy",
+    "sls-deploy-:service": "cd service && sls deploy",
     "lint": "eslint src"
   },
-  "repository": {
-    "url": "https://github.com/yanfeix/awesome-car-runner-service.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "axios": "^0.20.0",
-    "body-parser": "^1.19.0",
-    "compression": "^1.7.4",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "lodash": "^4.17.20",
-    "pg": "^8.3.2",
-    "pg-hstore": "^2.3.3",
-    "reflect-metadata": "^0.1.13",
-    "sequelize": "^6.5.0",
-    "sequelize-typescript": "^2.1.0"
-  },
   "devDependencies": {
-    "@types/express": "^4.17.11",
-    "@types/node": "^14.14.31",
-    "@types/validator": "^13.1.3",
     "cross-env": "^7.0.2",
-    "eslint": "^7.7.0",
-    "jest": "^26.4.2",
-    "nodemon": "^2.0.4",
-    "npm-run-all": "^4.1.5",
-    "tslint": "^6.1.3",
-    "typescript": "^4.1.5"
+    "npm-run-all": "^4.1.5"
   }
 }

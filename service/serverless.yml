@@ -9,9 +9,15 @@ inputs:
   serviceName:  api_${name}_${stage}
   runtime: Nodejs12.16
   src:
-    src: ./ # (optional) path to the source folder
+    src: ../service # (optional) path to the source folder
     exclude:
+      - src
       - .env
+      - package-lock.json
+      - serverless.yml
+      - tsconfig.json
+      - tslint.json
+  entryFile: ./dist/app.js
   functionConf:
     memorySize: 128
     timeout: 10
