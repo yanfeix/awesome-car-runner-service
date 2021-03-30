@@ -3,15 +3,10 @@
   "version": "1.0.0",
   "description": "A NodeJS application built on serverless express",
   "scripts": {
-    "local": "cross-env NODE_ENV=local run-s clean build-server monitor-server",
-    "clean": "rimraf dist",
-    "build-server": "tsc",
-    "monitor-server": "nodemon --watch dist/sls.js",
-    "serverless": "cross-env NODE_ENV=development APP_NAME=awesomeCarRunner run-s sls-deploy-:*",
-    "sls-deploy:vpc": "cd vpc && sls deploy",
-    "sls-deploy:db": "cd postgreSQL && sls deploy",
-    "sls-deploy-:service": "cd service && sls deploy",
-    "lint": "eslint src"
+    "serverless": "cross-env NODE_ENV=development APP_NAME=awesomeCarRunner run-s deploy:*",
+    "deploy:vpc": "cd vpc && sls deploy",
+    "deploy:db": "cd postgreSQL && sls deploy",
+    "deploy:service": "cd service && sls deploy"
   },
   "devDependencies": {
     "cross-env": "^7.0.2",
